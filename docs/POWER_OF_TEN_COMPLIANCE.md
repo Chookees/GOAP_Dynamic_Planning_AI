@@ -99,19 +99,39 @@ allowed when they do not escape or allocate.
 ## Audit tool
 
 ```bash
-dotnet run --project tools/TacticalGoap.Audit --configuration Release
+dotnet run --project tools/TacticalGoap.Audit --configuration Release -- /path/to/repo
 ```
 
-Expected checks (as the audit tool matures):
+`TacticalGoap.Audit` walks production sources under `src/` with Roslyn (syntax-only)
+and reports `File`, `Line`, `RuleId`, `Severity`, `Description`. Exit code is
+non-zero when any **Error** finding is present.
 
-- `[FrozenRuntimePath]` methods for allocation APIs
-- Method logical line counts
-- Unbounded `while (true)` without counters
-- `unsafe` / `#if` in Runtime
-- Recursion on frozen types
+| RuleId | Check | Default severity |
+|--------|-------|------------------|
+| POT001 | Method logical lines &gt; 60 | Warning (approx) |
+| POT002 | `goto` | Error |
+| POT003 | `dynamic` | Error |
+| POT004 | `unsafe` / pointers | Error |
+| POT005 | `async` / `Task` in Runtime | Error |
+| POT006 | `System.Linq` / common LINQ calls in Runtime | Error |
+| POT007 | `new List/Dictionary/HashSet` in Runtime | Warning |
+| POT008 | Missing `///` XML docs on public members | Warning |
+| POT009 | `#pragma warning disable` | Warning |
+| POT010 | `while` without counter heuristic | Warning |
+| POT011 | Direct recursion heuristic | Warning |
+| POT012 | Interpolated strings in `[FrozenRuntimePath]` | Error |
+| POT013 | `new` reference types / arrays in `[FrozenRuntimePath]` | Error |
 
-Until the audit implementation is complete, treat these as review requirements.
-Status: **PartiallyImplemented** (`REQ-PO10-001`).
+### Limitations
+
+- Syntax-only: no full compilation semantic model (aliases, overload resolution).
+- POT001 approximates logical lines per method body; partials across files are not merged.
+- POT007 also flags freeze-time constructors; treat as review signal, not automatic ban.
+- POT008 / POT010 / POT011 are heuristics with known false positives and negatives.
+- POT013 indexes `struct` / `class` names across `src/` before flagging; unknown
+  types and implicit `new()` remain warnings. Arrays in frozen methods stay errors.
+
+Status: **Implemented** (`REQ-PO10-001`) with documented heuristic limits.
 
 ## Non-goals
 

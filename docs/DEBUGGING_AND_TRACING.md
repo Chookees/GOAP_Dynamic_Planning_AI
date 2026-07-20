@@ -49,4 +49,17 @@ configurations; violations map to `OperationStatus.ContractViolation`.
 
 ## Implementation status
 
-Enum catalog: **Implemented**. Ring buffer + formatters: **Pending**.
+Enum catalog: **Implemented**.
+
+Ring buffer: **Implemented** — `TacticalGoap.Diagnostics.DiagnosticRingBuffer`
+(fixed capacity, overwrite-oldest, `Write` / `TryRead` / `Clear`).
+
+On-demand formatters: **Implemented** in `TacticalGoap.Diagnostics.Formatting`:
+
+- `TraceFormatter`
+- `PlannerExplanationFormatter`
+- `GoalPriorityTableFormatter`
+- `SquadStateFormatter`
+- `MemoryDumpFormatter`
+
+Contract helpers: `DiagnosticContract` re-exports `AiContract` for Diagnostics callers.

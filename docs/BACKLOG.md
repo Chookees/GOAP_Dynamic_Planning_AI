@@ -25,7 +25,7 @@ Status values: `Done`, `InProgress`, `Todo`, `Blocked`.
 
 | ID | Title | Priority | Status | Req |
 |----|-------|----------|--------|-----|
-| TG-ARC-001 | Enforce project reference direction via ArchitectureTests | P0 | Todo | REQ-PUSH-001 |
+| TG-ARC-001 | Enforce project reference direction via ArchitectureTests | P0 | Done | REQ-PUSH-001 |
 | TG-ARC-002 | Runtime lifecycle state machine implementation | P0 | Todo | REQ-ALLOC-001 |
 | TG-ARC-003 | Agent registry within MaximumAgents | P0 | Todo | REQ-GOAP-001 |
 | TG-ARC-004 | Tick entrypoint validating AiTick | P0 | Todo | REQ-DET-001 |
@@ -164,9 +164,9 @@ Status values: `Done`, `InProgress`, `Todo`, `Blocked`.
 
 | ID | Title | Priority | Status | Req |
 |----|-------|----------|--------|-----|
-| TG-DIA-001 | Ring buffer writer (frozen-safe) | P1 | Todo | REQ-DET-001 |
-| TG-DIA-002 | On-demand formatters in Diagnostics assembly | P1 | Todo | REQ-DOC-001 |
-| TG-DIA-003 | Contract assertion helpers | P2 | Todo | REQ-PO10-001 |
+| TG-DIA-001 | Ring buffer writer (frozen-safe) | P1 | Done | REQ-DET-001 |
+| TG-DIA-002 | On-demand formatters in Diagnostics assembly | P1 | Done | REQ-DOC-001 |
+| TG-DIA-003 | Contract assertion helpers | P2 | Done | REQ-PO10-001 |
 
 ---
 
@@ -174,10 +174,10 @@ Status values: `Done`, `InProgress`, `Todo`, `Blocked`.
 
 | ID | Title | Priority | Status | Req |
 |----|-------|----------|--------|-----|
-| TG-AUD-001 | Roslyn walk of production projects | P1 | Todo | REQ-PO10-001 |
-| TG-AUD-002 | Detect allocations in FrozenRuntimePath | P1 | Todo | REQ-ALLOC-001 |
-| TG-AUD-003 | Method logical line limit (60) | P1 | Todo | REQ-PO10-001 |
-| TG-AUD-004 | Ban unsafe / Runtime #if forks | P2 | Todo | REQ-PO10-001 |
+| TG-AUD-001 | Roslyn walk of production projects | P1 | Done | REQ-PO10-001 |
+| TG-AUD-002 | Detect allocations in FrozenRuntimePath | P1 | Done | REQ-ALLOC-001 |
+| TG-AUD-003 | Method logical line limit (60) | P1 | Done | REQ-PO10-001 |
+| TG-AUD-004 | Ban unsafe / Runtime #if forks | P2 | Done | REQ-PO10-001 |
 
 ---
 
