@@ -1,0 +1,68 @@
+{
+  "runtime": {
+    "maxAgents": 8,
+    "maxSquads": 4,
+    "tickDeltaMilliseconds": 16
+  },
+  "planner": {
+    "maxNodes": 512,
+    "maxExpansionsPerStep": 64,
+    "maxStepsPerTick": 8,
+    "maxPlanLength": 16,
+    "maxReplanningAttempts": 8
+  },
+  "perception": {
+    "maxCandidates": 32,
+    "maxSoundEvents": 32,
+    "maxDamageEvents": 16,
+    "visionRangeCells": 12
+  },
+  "memory": {
+    "maxRecords": 64,
+    "defaultConfidence": 800
+  },
+  "goals": {
+    "maxGoalsPerAgent": 16,
+    "hysteresisMargin": 10,
+    "dangerPriorityFloor": 9000
+  },
+  "actions": {
+    "maxDefinitions": 128,
+    "maxCandidates": 256,
+    "maxActionTicks": 1024
+  },
+  "cover": {
+    "maxCandidates": 32,
+    "maxTacticalPoints": 256,
+    "flankAngleWeight": 40,
+    "pathCostWeight": 2,
+    "qualityWeight": 10
+  },
+  "navigation": {
+    "maxPathNodes": 128,
+    "maxExpansions": 512,
+    "gridWidth": 24,
+    "gridHeight": 16
+  },
+  "squad": {
+    "maxSquads": 16,
+    "maxAgentsPerSquad": 8,
+    "maxOrders": 64,
+    "maxSearchSectors": 32,
+    "reclusterIntervalTicks": 30,
+    "defaultOrderDurationTicks": 45
+  },
+  "communication": {
+    "maxPendingRequests": 32
+  },
+  "diagnostics": {
+    "ringBufferCapacity": 1024,
+    "enabled": true
+  },
+  "sample": {
+    "defaultMaxTicks": 256,
+    "defaultSeed": 42,
+    "defaultScenario": "BasicAttack",
+    "traceDirectory": "traces"
+  }
+}
