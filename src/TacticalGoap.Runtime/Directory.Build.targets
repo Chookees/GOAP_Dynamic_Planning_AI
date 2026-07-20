@@ -1,0 +1,13 @@
+<Project>
+  <!--
+    Parallel-subsystem compile gate.
+    Cover/Navigation/Reservations are re-included by TacticalGoap.Runtime.csproj target.
+    Squad/Communication remain compiled for Subagent F.
+  -->
+  <ItemGroup>
+    <Compile Remove="$(MSBuildThisFileDirectory)Goals/**/*.cs" />
+    <Compile Remove="$(MSBuildThisFileDirectory)Actions/**/*.cs" />
+    <Compile Remove="$(MSBuildThisFileDirectory)Execution/**/*.cs" />
+    <Compile Remove="$(MSBuildThisFileDirectory)Runtime/**/*.cs" />
+  </ItemGroup>
+</Project>

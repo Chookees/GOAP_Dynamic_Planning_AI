@@ -8,4 +8,19 @@
   <ItemGroup>
     <ProjectReference Include="..\TacticalGoap.Abstractions\TacticalGoap.Abstractions.csproj" />
   </ItemGroup>
+
+  <!--
+    Subagent E ownership: always compile Cover/Navigation/Reservations even when a
+    parallel compile gate removes them at evaluation time.
+  -->
+  <Target Name="IncludeSubagentESources" BeforeTargets="BeforeCompile">
+    <ItemGroup>
+      <Compile Remove="$(MSBuildProjectDirectory)/Cover/**/*.cs" />
+      <Compile Remove="$(MSBuildProjectDirectory)/Navigation/**/*.cs" />
+      <Compile Remove="$(MSBuildProjectDirectory)/Reservations/**/*.cs" />
+      <Compile Include="$(MSBuildProjectDirectory)/Cover/**/*.cs" />
+      <Compile Include="$(MSBuildProjectDirectory)/Navigation/**/*.cs" />
+      <Compile Include="$(MSBuildProjectDirectory)/Reservations/**/*.cs" />
+    </ItemGroup>
+  </Target>
 </Project>
