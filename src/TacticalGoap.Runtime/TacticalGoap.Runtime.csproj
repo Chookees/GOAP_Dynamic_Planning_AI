@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsProductionProject>true</IsProductionProject>
+    <RootNamespace>TacticalGoap.Runtime</RootNamespace>
+    <AssemblyName>TacticalGoap.Runtime</AssemblyName>
+    <Description>Deterministic bounded GOAP runtime, perception, cover, and squad coordination.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TacticalGoap.Abstractions\TacticalGoap.Abstractions.csproj" />
+  </ItemGroup>
+</Project>
