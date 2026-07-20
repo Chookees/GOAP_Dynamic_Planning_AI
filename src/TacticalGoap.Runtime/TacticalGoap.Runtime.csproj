@@ -15,12 +15,12 @@
   -->
   <Target Name="IncludeSubagentESources" BeforeTargets="BeforeCompile">
     <ItemGroup>
-      <Compile Remove="$(MSBuildProjectDirectory)/Cover/**/*.cs" />
-      <Compile Remove="$(MSBuildProjectDirectory)/Navigation/**/*.cs" />
-      <Compile Remove="$(MSBuildProjectDirectory)/Reservations/**/*.cs" />
-      <Compile Include="$(MSBuildProjectDirectory)/Cover/**/*.cs" />
-      <Compile Include="$(MSBuildProjectDirectory)/Navigation/**/*.cs" />
-      <Compile Include="$(MSBuildProjectDirectory)/Reservations/**/*.cs" />
+      <_OwnedCover Include="Cover\**\*.cs" />
+      <_OwnedNav Include="Navigation\**\*.cs" />
+      <_OwnedReservations Include="Reservations\**\*.cs" />
+      <Compile Include="@(_OwnedCover)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedNav)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedReservations)" Exclude="@(Compile)" />
     </ItemGroup>
   </Target>
 </Project>

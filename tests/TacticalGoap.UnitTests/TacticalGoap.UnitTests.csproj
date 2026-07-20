@@ -16,20 +16,22 @@
     <ProjectReference Include="..\..\src\TacticalGoap.Runtime\TacticalGoap.Runtime.csproj" />
   </ItemGroup>
 
-  <!-- Temporary gate. Subagent F: Squad + Communication tests enabled. -->
+  <!-- Temporary gate for incomplete Actions/Goals/Contracts. -->
   <ItemGroup>
     <Compile Remove="Actions/**/*.cs" />
     <Compile Remove="Goals/**/*.cs" />
-    <Compile Remove="Cover/**/*.cs" />
-    <Compile Remove="Navigation/**/*.cs" />
     <Compile Remove="Contracts/**/*.cs" />
   </ItemGroup>
 
-  <!-- Re-include owned tests if another gate removes them. -->
-  <Target Name="EnsureSquadCommunicationTests" BeforeTargets="BeforeCompile">
+  <!-- Re-include owned tests if a parallel gate removes them. -->
+  <Target Name="EnsureOwnedSubsystemTests" BeforeTargets="BeforeCompile">
     <ItemGroup>
+      <_OwnedCoverTests Include="Cover\**\*.cs" />
+      <_OwnedNavTests Include="Navigation\**\*.cs" />
       <_OwnedSquadTests Include="Squad\**\*.cs" />
       <_OwnedCommTests Include="Communication\**\*.cs" />
+      <Compile Include="@(_OwnedCoverTests)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedNavTests)" Exclude="@(Compile)" />
       <Compile Include="@(_OwnedSquadTests)" Exclude="@(Compile)" />
       <Compile Include="@(_OwnedCommTests)" Exclude="@(Compile)" />
     </ItemGroup>
