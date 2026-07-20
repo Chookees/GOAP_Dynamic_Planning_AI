@@ -8,7 +8,7 @@ namespace TacticalGoap.UnitTests.Contracts;
 /// <remarks>
 /// Intended for sample and unit-test probes. Not used on the frozen runtime path.
 /// </remarks>
-public static class AllocationProbe
+internal static class AllocationProbe
 {
     /// <summary>
     /// Measures bytes allocated by <paramref name="action"/> on the current thread.

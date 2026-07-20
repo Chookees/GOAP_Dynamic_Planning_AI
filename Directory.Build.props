@@ -20,6 +20,11 @@
     <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
 
+  <!-- Test assemblies are not shipped APIs; CA1515 (make types internal) is noise. -->
+  <PropertyGroup Condition="'$(IsTestProject)' == 'true'">
+    <NoWarn>$(NoWarn);CA1515</NoWarn>
+  </PropertyGroup>
+
   <PropertyGroup>
     <Authors>TacticalGoap Contributors</Authors>
     <Company>TacticalGoap</Company>

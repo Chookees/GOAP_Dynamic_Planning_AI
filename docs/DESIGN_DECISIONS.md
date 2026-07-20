@@ -201,3 +201,25 @@ failures; reserve exceptions for true programmer errors outside tick policy.
 
 - Call sites must check statuses (Rule 7)
 - Richer diagnostics and deterministic recovery
+
+
+## ADR-009 — CA1515 handling for test and executable projects
+
+**Date:** Project sequence after TG-DIA-001 / TG-SIM-001
+
+**Context:** With `AnalysisLevel=latest-all` and `TreatWarningsAsErrors`, CA1515
+requires non-entry types in application projects to be `internal`. Test helpers
+and console entry assemblies trigger noise without improving the library API.
+
+**Decision:**
+- Test projects (`IsTestProject=true`) suppress CA1515 via `Directory.Build.props`.
+- Sample and Audit executables may suppress CA1515/CA1303 locally for entry-point
+  and console-facing types.
+- Library projects (`Abstractions`, `Runtime`, `Configuration`, `Diagnostics`) do
+  **not** suppress CA1515; public surface remains intentional.
+
+**Alternatives:** Make every test type internal (done for AllocationProbe);
+disable CA1515 globally (rejected).
+
+**Consequences:** Aligns with "no blanket NoWarn" for production libraries while
+keeping executables and tests buildable.
