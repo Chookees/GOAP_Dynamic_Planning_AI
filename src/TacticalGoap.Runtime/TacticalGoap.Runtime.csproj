@@ -4,6 +4,7 @@
     <RootNamespace>TacticalGoap.Runtime</RootNamespace>
     <AssemblyName>TacticalGoap.Runtime</AssemblyName>
     <Description>Deterministic bounded GOAP runtime, perception, cover, and squad coordination.</Description>
+    <NoWarn>$(NoWarn);IDE0130</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\TacticalGoap.Abstractions\TacticalGoap.Abstractions.csproj" />
@@ -21,6 +22,23 @@
       <Compile Include="@(_OwnedCover)" Exclude="@(Compile)" />
       <Compile Include="@(_OwnedNav)" Exclude="@(Compile)" />
       <Compile Include="@(_OwnedReservations)" Exclude="@(Compile)" />
+    </ItemGroup>
+  </Target>
+
+  <!--
+    Subagent C ownership: always compile Goals/Actions/Execution/Runtime even when a
+    parallel compile gate removes them at evaluation time.
+  -->
+  <Target Name="IncludeSubagentCSources" BeforeTargets="BeforeCompile">
+    <ItemGroup>
+      <_OwnedGoals Include="Goals\**\*.cs" />
+      <_OwnedActions Include="Actions\**\*.cs" />
+      <_OwnedExecution Include="Execution\**\*.cs" />
+      <_OwnedRuntime Include="Runtime\**\*.cs" />
+      <Compile Include="@(_OwnedGoals)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedActions)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedExecution)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedRuntime)" Exclude="@(Compile)" />
     </ItemGroup>
   </Target>
 </Project>
