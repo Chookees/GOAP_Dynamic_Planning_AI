@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsProductionProject>true</IsProductionProject>
+    <RootNamespace>TacticalGoap.Abstractions</RootNamespace>
+    <AssemblyName>TacticalGoap.Abstractions</AssemblyName>
+    <Description>Engine-agnostic contracts, identifiers, and domain types for TacticalGoap.</Description>
+  </PropertyGroup>
+</Project>
