@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <IsProductionProject>true</IsProductionProject>
+    <RootNamespace>TacticalGoap.Sample</RootNamespace>
+    <AssemblyName>TacticalGoap.Sample</AssemblyName>
+    <Description>Deterministic console simulation demonstrating TacticalGoap.</Description>
+    <!-- Sample is referenced by tests; keep public API. Localized resources not required for console host. -->
+    <NoWarn>$(NoWarn);CA1515;CA1303;CA1002;CA1031;CA1062</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TacticalGoap.Abstractions\TacticalGoap.Abstractions.csproj" />
+    <ProjectReference Include="..\TacticalGoap.Runtime\TacticalGoap.Runtime.csproj" />
+    <ProjectReference Include="..\TacticalGoap.Configuration\TacticalGoap.Configuration.csproj" />
+    <ProjectReference Include="..\TacticalGoap.Diagnostics\TacticalGoap.Diagnostics.csproj" />
+  </ItemGroup>
+</Project>

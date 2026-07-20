@@ -1,0 +1,6 @@
+<Project>
+  <!-- Production assemblies treat missing XML documentation as errors. -->
+  <PropertyGroup Condition="'$(IsProductionProject)' == 'true'">
+    <WarningsAsErrors>$(WarningsAsErrors);CS1591</WarningsAsErrors>
+  </PropertyGroup>
+</Project>

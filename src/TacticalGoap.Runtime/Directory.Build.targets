@@ -1,0 +1,6 @@
+<Project>
+  <PropertyGroup>
+    <!-- Actions are organized in a flat namespace under the Actions folder. -->
+    <NoWarn>$(NoWarn);IDE0130</NoWarn>
+  </PropertyGroup>
+</Project>
