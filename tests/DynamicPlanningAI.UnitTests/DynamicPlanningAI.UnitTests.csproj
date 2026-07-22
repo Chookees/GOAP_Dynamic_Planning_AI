@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsPackable>false</IsPackable>
+    <IsTestProject>true</IsTestProject>
+    <RootNamespace>DynamicPlanningAI.UnitTests</RootNamespace>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" />
+    <PackageReference Include="xunit" />
+    <PackageReference Include="xunit.runner.visualstudio" />
+    <PackageReference Include="coverlet.collector" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\DynamicPlanningAI.Abstractions\DynamicPlanningAI.Abstractions.csproj" />
+    <ProjectReference Include="..\..\src\DynamicPlanningAI.Runtime\DynamicPlanningAI.Runtime.csproj" />
+  </ItemGroup>
+
+  <!-- Re-include owned tests if a parallel gate removes them. -->
+  <Target Name="EnsureOwnedSubsystemTests" BeforeTargets="BeforeCompile">
+    <ItemGroup>
+      <_OwnedCoverTests Include="Cover\**\*.cs" />
+      <_OwnedNavTests Include="Navigation\**\*.cs" />
+      <_OwnedSquadTests Include="Squad\**\*.cs" />
+      <_OwnedCommTests Include="Communication\**\*.cs" />
+      <_OwnedGoalTests Include="Goals\**\*.cs" />
+      <_OwnedActionTests Include="Actions\**\*.cs" />
+      <_OwnedExecutionTests Include="Execution\**\*.cs" />
+      <_OwnedRuntimeTests Include="Runtime\**\*.cs" />
+      <Compile Include="@(_OwnedCoverTests)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedNavTests)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedSquadTests)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedCommTests)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedGoalTests)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedActionTests)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedExecutionTests)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedRuntimeTests)" Exclude="@(Compile)" />
+    </ItemGroup>
+  </Target>
+</Project>

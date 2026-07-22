@@ -1,6 +1,6 @@
 # Public Source Fidelity
 
-This document records how TacticalGoap relates to publicly discussed tactical GOAP
+This document records how DynamicPlanningAI relates to publicly discussed tactical GOAP
 ideas (including F.E.A.R.-era industry presentations) and what it deliberately
 does **not** claim.
 
@@ -9,7 +9,7 @@ Related: [NOTICE.md](../NOTICE.md), [DESIGN_DECISIONS.md](DESIGN_DECISIONS.md),
 
 ## Statement of originality
 
-TacticalGoap is **original software**. Contributors did not reverse-engineer,
+DynamicPlanningAI is **original software**. Contributors did not reverse-engineer,
 decompile, or copy proprietary game AI binaries, scripts, or confidential
 materials. Types, algorithms, capacity tables, APIs, and documentation are
 engineered for this repository’s requirements: determinism, bounded memory,
@@ -19,7 +19,7 @@ Power-of-Ten discipline, and engine-agnostic hosting.
 
 Public materials describe recurring **principles**, for example:
 
-| Public principle | TacticalGoap expression |
+| Public principle | DynamicPlanningAI expression |
 |------------------|-------------------------|
 | Agents plan toward goals rather than hard-scripting every tactic | GOAP planner over goal desire conditions |
 | World knowledge is a compact symbolic state | `WorldFactId` bit-mask (≤ 64 facts) |
@@ -31,7 +31,7 @@ Public materials describe recurring **principles**, for example:
 
 These are industry-standard AI architecture ideas, not proprietary trade secrets.
 
-## What TacticalGoap does not include
+## What DynamicPlanningAI does not include
 
 - No proprietary action graphs, animation trees, or dialogue banks
 - No binary-compatible layouts matching any commercial engine
@@ -41,7 +41,7 @@ These are industry-standard AI architecture ideas, not proprietary trade secrets
 
 ## Design divergence (intentional)
 
-TacticalGoap makes engineering choices that differ from historical descriptions:
+DynamicPlanningAI makes engineering choices that differ from historical descriptions:
 
 1. **Backward regression A\*** with explicit incremental budgets and typed
    `PlannerStatus` outcomes (see [GOAP_PLANNER.md](GOAP_PLANNER.md), ADR-001).

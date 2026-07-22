@@ -8,8 +8,10 @@ Maps product requirements to documentation, implementation, and tests.
 | `PartiallyImplemented` | Core present; residual gaps documented |
 | `Pending` | Not started |
 
-Related: [BACKLOG.md](BACKLOG.md), [DESIGN_DECISIONS.md](DESIGN_DECISIONS.md),
+Related: [NAMING.md](NAMING.md), [BACKLOG.md](BACKLOG.md), [DESIGN_DECISIONS.md](DESIGN_DECISIONS.md),
 [ARCHITECTURE.md](ARCHITECTURE.md).
+
+**DP** in requirement and task identifiers means **DynamicPlanning**. **DP_AI** is the short form of **DynamicPlanningAI**.
 
 ---
 
@@ -21,12 +23,12 @@ explicit budgets and `PlannerResult` / `PlannerStatus` outcomes.
 | Artifact | Role | Status |
 |----------|------|--------|
 | `docs/GOAP_PLANNER.md` | Spec + worked example | Implemented |
-| `src/TacticalGoap.Runtime/WorldState/*` | Symbolic state | Implemented |
-| `src/TacticalGoap.Runtime/Planning/*` | Planner, heap, workspace | Implemented |
-| `src/TacticalGoap.Runtime/Goals/*` | Goals + arbitration | Implemented |
-| `src/TacticalGoap.Runtime/Actions/*` | Action catalog + executors | Implemented |
-| `tests/TacticalGoap.UnitTests/Planning/*` | Planner tests | Implemented |
-| `tests/TacticalGoap.UnitTests/WorldState/*` | World-state tests | Implemented |
+| `src/DynamicPlanningAI.Runtime/WorldState/*` | Symbolic state | Implemented |
+| `src/DynamicPlanningAI.Runtime/Planning/*` | Planner, heap, workspace | Implemented |
+| `src/DynamicPlanningAI.Runtime/Goals/*` | Goals + arbitration | Implemented |
+| `src/DynamicPlanningAI.Runtime/Actions/*` | Action catalog + executors | Implemented |
+| `tests/DynamicPlanningAI.UnitTests/Planning/*` | Planner tests | Implemented |
+| `tests/DynamicPlanningAI.UnitTests/WorldState/*` | World-state tests | Implemented |
 
 **Overall:** Implemented
 
@@ -39,8 +41,8 @@ explicit budgets and `PlannerResult` / `PlannerStatus` outcomes.
 | `docs/POWER_OF_TEN_COMPLIANCE.md` | Rule map | Implemented |
 | `FrozenRuntimePathAttribute` | Path marker | Implemented |
 | `Directory.Build.props` | Analyzers, overflow, no unsafe | Implemented |
-| `tools/TacticalGoap.Audit` | Source audit POT001–POT013 | Implemented |
-| `tests/TacticalGoap.ArchitectureTests` | Layering / LINQ / unsafe | Implemented |
+| `tools/DynamicPlanningAI.Audit` | Source audit POT001–POT013 | Implemented |
+| `tests/DynamicPlanningAI.ArchitectureTests` | Layering / LINQ / unsafe | Implemented |
 
 **Overall:** Implemented (audit warns on heuristics; zero errors required)
 
@@ -77,8 +79,8 @@ explicit budgets and `PlannerResult` / `PlannerStatus` outcomes.
 | Artifact | Role | Status |
 |----------|------|--------|
 | `docs/SQUAD_COORDINATION.md` | Spec | Implemented |
-| `src/TacticalGoap.Runtime/Squad/*` | Coordinator + behaviors | Implemented |
-| `tests/TacticalGoap.UnitTests/Squad/*` | Unit tests | Implemented |
+| `src/DynamicPlanningAI.Runtime/Squad/*` | Coordinator + behaviors | Implemented |
+| `tests/DynamicPlanningAI.UnitTests/Squad/*` | Unit tests | Implemented |
 | Sample `SquadSearch`, `AdvanceUnderSuppression` | Scenarios | Implemented |
 
 **Overall:** Implemented
@@ -90,8 +92,8 @@ explicit budgets and `PlannerResult` / `PlannerStatus` outcomes.
 | Artifact | Role | Status |
 |----------|------|--------|
 | `docs/TACTICAL_POINTS_AND_COVER.md` | Spec + emergent flank | Implemented |
-| `src/TacticalGoap.Runtime/Cover/*` | Scoring + invalidation | Implemented |
-| `src/TacticalGoap.Runtime/Reservations/*` | Reservation table | Implemented |
+| `src/DynamicPlanningAI.Runtime/Cover/*` | Scoring + invalidation | Implemented |
+| `src/DynamicPlanningAI.Runtime/Reservations/*` | Reservation table | Implemented |
 | Cover unit tests + OrderOverriddenByDanger | Verification | Implemented |
 
 **Overall:** Implemented
@@ -127,9 +129,9 @@ explicit budgets and `PlannerResult` / `PlannerStatus` outcomes.
 
 | Artifact | Role | Status |
 |----------|------|--------|
-| `src/TacticalGoap.Sample` | Console sim + 12 scenarios | Implemented |
-| `tests/TacticalGoap.SimulationTests` | Smoke tests | Implemented |
-| `tests/TacticalGoap.IntegrationTests` | Door replan, override, replay | Implemented |
+| `src/DynamicPlanningAI.Sample` | Console sim + 12 scenarios | Implemented |
+| `tests/DynamicPlanningAI.SimulationTests` | Smoke tests | Implemented |
+| `tests/DynamicPlanningAI.IntegrationTests` | Door replan, override, replay | Implemented |
 
 **Overall:** Implemented
 
@@ -139,8 +141,8 @@ explicit budgets and `PlannerResult` / `PlannerStatus` outcomes.
 
 | Artifact | Role | Status |
 |----------|------|--------|
-| Integration branch `cursor/tactical-goap-framework-fe97` | Workflow | Implemented |
-| Atomic TG-* commits pushed to origin | History | Implemented |
+| Integration branch `cursor/dynamic-planning-ai-framework-fe97` | Workflow | Implemented |
+| Atomic DP-* commits pushed to origin (DP = DynamicPlanning) | History | Implemented |
 
 **Overall:** Implemented
 
@@ -153,6 +155,6 @@ dotnet restore
 dotnet build --configuration Release
 dotnet test --configuration Release --no-build
 dotnet format --verify-no-changes
-dotnet run --project tools/TacticalGoap.Audit --configuration Release
-dotnet run --project src/TacticalGoap.Sample --configuration Release -- --scenario BasicAttack
+dotnet run --project tools/DynamicPlanningAI.Audit --configuration Release
+dotnet run --project src/DynamicPlanningAI.Sample --configuration Release -- --scenario BasicAttack
 ```

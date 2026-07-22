@@ -1,6 +1,6 @@
 # Engine Integration Guide
 
-TacticalGoap is **engine-agnostic**. Integrate by implementing host services and
+DynamicPlanningAI is **engine-agnostic**. Integrate by implementing host services and
 driving `AiTick`. This guide is not Unity-specific; Unity, Unreal, Godot, custom
 C++/C# engines, and the console Sample all use the same pattern.
 
@@ -75,7 +75,7 @@ In-process grid nav and instant hit resolution; ideal for CI.
 
 ## What not to do
 
-- Do not call into engine singletons from `TacticalGoap.Runtime`.
+- Do not call into engine singletons from `DynamicPlanningAI.Runtime`.
 - Do not pass `GameObject` / `AActor` references into world state.
 - Do not rely on coroutines that complete off-tick without recording completion
   on a future `AiTick`.
@@ -83,7 +83,7 @@ In-process grid nav and instant hit resolution; ideal for CI.
 ## Sample command
 
 ```bash
-dotnet run --project src/TacticalGoap.Sample --configuration Release -- --scenario BasicAttack
+dotnet run --project src/DynamicPlanningAI.Sample --configuration Release -- --scenario BasicAttack
 ```
 
 ## Implementation status

@@ -1,6 +1,6 @@
 # Configuration
 
-`TacticalGoap.Configuration` loads and validates immutable scenario definitions,
+`DynamicPlanningAI.Configuration` loads and validates immutable scenario definitions,
 then hands validated sizes and definitions to Runtime for freeze.
 
 Related: [ARCHITECTURE.md](ARCHITECTURE.md),
