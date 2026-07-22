@@ -1,17 +1,19 @@
 # NOTICE
 
-## TacticalGoap
+## DynamicPlanningAI (DP_AI)
 
-Copyright (c) 2026 TacticalGoap Contributors
+**DP_AI** is the short form of **DynamicPlanningAI**. **DP** means **DynamicPlanning**.
 
-TacticalGoap is an **original**, engine-agnostic Goal-Oriented Action Planning (GOAP)
+Copyright (c) 2026 DynamicPlanningAI Contributors
+
+DynamicPlanningAI (DP_AI) is an **original**, engine-agnostic Goal-Oriented Action Planning (GOAP)
 framework written in C# / .NET. All source code, configuration schemas, sample
 scenarios, tests, and documentation in this repository are original works of the
-TacticalGoap contributors unless otherwise noted below.
+DynamicPlanningAI contributors unless otherwise noted below.
 
 ## Inspiration (not derivation)
 
-TacticalGoap is **inspired by publicly documented principles** of tactical AI and
+DynamicPlanningAI is **inspired by publicly documented principles** of tactical AI and
 GOAP systems discussed in industry talks, postmortems, and academic literature
 associated with titles such as F.E.A.R. Those materials describe high-level ideas
 such as:
@@ -21,7 +23,7 @@ such as:
 - Goal arbitration and plan reuse under time pressure
 - Squad-level coordination layered on individual planners
 
-**TacticalGoap is not a reverse-engineered or proprietary reproduction** of any
+**DynamicPlanningAI is not a reverse-engineered or proprietary reproduction** of any
 commercial game engine, AI DLL, or closed-source asset. No proprietary source,
 binaries, assets, or confidential materials were used. Algorithmic choices,
 data layouts, APIs, capacity limits, and naming are original engineering decisions

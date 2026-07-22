@@ -1,6 +1,6 @@
 # Design Decisions (ADRs)
 
-Architecture Decision Records for TacticalGoap. Newest decisions append with the
+Architecture Decision Records for DynamicPlanningAI. Newest decisions append with the
 next ADR number.
 
 Related: [ARCHITECTURE.md](ARCHITECTURE.md),
@@ -67,12 +67,12 @@ planner workspace, with explicit overflow → `OpenSetCapacityExceeded`.
 ### Context
 
 Cloud agents and parallel workstreams land on
-`cursor/tactical-goap-framework-fe97`. Merge noise and divergent histories make
+`cursor/dynamic-planning-ai-framework-fe97`. Merge noise and divergent histories make
 review and bisect harder.
 
 ### Decision
 
-Integrate with a **linear history** on `cursor/tactical-goap-framework-fe97`
+Integrate with a **linear history** on `cursor/dynamic-planning-ai-framework-fe97`
 using rebase and/or cherry-pick of completed task commits. Avoid merge commits
 for routine integrations when possible. Requirement id: `REQ-PUSH-001`.
 
@@ -205,7 +205,7 @@ failures; reserve exceptions for true programmer errors outside tick policy.
 
 ## ADR-009 — CA1515 handling for test and executable projects
 
-**Date:** Project sequence after TG-DIA-001 / TG-SIM-001
+**Date:** Project sequence after DP-DIA-001 / DP-SIM-001
 
 **Context:** With `AnalysisLevel=latest-all` and `TreatWarningsAsErrors`, CA1515
 requires non-entry types in application projects to be `internal`. Test helpers
@@ -223,3 +223,32 @@ disable CA1515 globally (rejected).
 
 **Consequences:** Aligns with "no blanket NoWarn" for production libraries while
 keeping executables and tests buildable.
+
+---
+
+## ADR-010 — Product rename to DynamicPlanningAI (DP_AI)
+
+**Status:** Accepted  
+**Date:** 2026-07-22
+
+### Context
+
+The working name “TacticalGoap” / `TG-*` identifiers did not match the repository
+product identity (Dynamic Planning AI). Contributors needed a stable short form
+without ambiguous “DP” usage.
+
+### Decision
+
+- Canonical product name: **DynamicPlanningAI**
+- Accepted short form: **DP_AI**
+- **DP** always expands to **DynamicPlanning**
+- Assemblies, namespaces, solution, and docs use `DynamicPlanningAI.*`
+- Task IDs use `DP-*` where DP means DynamicPlanning
+- Document naming in `docs/NAMING.md` and the README
+
+### Consequences
+
+- Full repository rename of paths, projects, and mentions
+- Historical git commits may still contain the old name; tip of tree does not
+- Generic `Ai*` domain types remain unchanged
+

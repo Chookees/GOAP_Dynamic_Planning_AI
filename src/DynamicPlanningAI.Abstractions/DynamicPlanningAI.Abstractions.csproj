@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsProductionProject>true</IsProductionProject>
+    <RootNamespace>DynamicPlanningAI.Abstractions</RootNamespace>
+    <AssemblyName>DynamicPlanningAI.Abstractions</AssemblyName>
+    <Description>Engine-agnostic contracts, identifiers, and domain types for DynamicPlanningAI.</Description>
+  </PropertyGroup>
+</Project>

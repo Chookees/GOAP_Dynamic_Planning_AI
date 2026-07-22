@@ -12,10 +12,10 @@ Related: [DETERMINISM.md](DETERMINISM.md),
 
 | Project | Focus |
 |---------|-------|
-| `TacticalGoap.UnitTests` | Masks, heap, planner steps, scoring pure functions |
-| `TacticalGoap.IntegrationTests` | Runtime lifecycle, config load, host fakes |
-| `TacticalGoap.SimulationTests` | Multi-tick scenarios, flanking demo, determinism digests |
-| `TacticalGoap.ArchitectureTests` | Project reference direction, no illegal deps |
+| `DynamicPlanningAI.UnitTests` | Masks, heap, planner steps, scoring pure functions |
+| `DynamicPlanningAI.IntegrationTests` | Runtime lifecycle, config load, host fakes |
+| `DynamicPlanningAI.SimulationTests` | Multi-tick scenarios, flanking demo, determinism digests |
+| `DynamicPlanningAI.ArchitectureTests` | Project reference direction, no illegal deps |
 
 ## Commands
 
@@ -24,7 +24,7 @@ dotnet restore
 dotnet build --configuration Release
 dotnet test --configuration Release --no-build
 dotnet format --verify-no-changes
-dotnet run --project tools/TacticalGoap.Audit --configuration Release
+dotnet run --project tools/DynamicPlanningAI.Audit --configuration Release
 ```
 
 ## Strategies
