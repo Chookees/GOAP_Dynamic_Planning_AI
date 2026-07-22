@@ -67,7 +67,7 @@ return `OperationStatus.Conflict`. Lost reservations map to
 
 Public F.E.A.R.-era discussions emphasize that interesting tactics emerge from
 **goal + action vocabulary + world representation**, not from scripting each
-maneuver. TacticalGoap’s demo documents that property for regression tests
+maneuver. DynamicPlanningAI’s demo documents that property for regression tests
 (`REQ-COVER-001`, `REQ-SAMPLE-001`).
 
 ### Demo validation

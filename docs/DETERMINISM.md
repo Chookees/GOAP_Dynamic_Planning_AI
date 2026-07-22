@@ -1,6 +1,6 @@
 # Determinism
 
-TacticalGoap is designed so that **identical inputs and tick sequences produce
+DynamicPlanningAI is designed so that **identical inputs and tick sequences produce
 identical AI decisions**. This enables replay, lockstep tests, and simulation
 regression.
 

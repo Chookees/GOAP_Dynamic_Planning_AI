@@ -1,6 +1,6 @@
 # GOAP Planner
 
-TacticalGoap plans with **backward regression A\***: search starts from the goal’s
+DynamicPlanningAI plans with **backward regression A\***: search starts from the goal’s
 desired world facts and regresses through action effects until the current world
 state satisfies remaining needs—or budgets fail with an explicit
 `PlannerStatus`.

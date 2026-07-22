@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsProductionProject>true</IsProductionProject>
+    <RootNamespace>DynamicPlanningAI.Runtime</RootNamespace>
+    <AssemblyName>DynamicPlanningAI.Runtime</AssemblyName>
+    <Description>Deterministic bounded GOAP runtime, perception, cover, and squad coordination.</Description>
+    <NoWarn>$(NoWarn);IDE0130</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DynamicPlanningAI.Abstractions\DynamicPlanningAI.Abstractions.csproj" />
+  </ItemGroup>
+
+  <!--
+    Subagent E ownership: always compile Cover/Navigation/Reservations even when a
+    parallel compile gate removes them at evaluation time.
+  -->
+  <Target Name="IncludeSubagentESources" BeforeTargets="BeforeCompile">
+    <ItemGroup>
+      <_OwnedCover Include="Cover\**\*.cs" />
+      <_OwnedNav Include="Navigation\**\*.cs" />
+      <_OwnedReservations Include="Reservations\**\*.cs" />
+      <Compile Include="@(_OwnedCover)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedNav)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedReservations)" Exclude="@(Compile)" />
+    </ItemGroup>
+  </Target>
+
+  <!--
+    Subagent C ownership: always compile Goals/Actions/Execution/Runtime even when a
+    parallel compile gate removes them at evaluation time.
+  -->
+  <Target Name="IncludeSubagentCSources" BeforeTargets="BeforeCompile">
+    <ItemGroup>
+      <_OwnedGoals Include="Goals\**\*.cs" />
+      <_OwnedActions Include="Actions\**\*.cs" />
+      <_OwnedExecution Include="Execution\**\*.cs" />
+      <_OwnedRuntime Include="Runtime\**\*.cs" />
+      <Compile Include="@(_OwnedGoals)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedActions)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedExecution)" Exclude="@(Compile)" />
+      <Compile Include="@(_OwnedRuntime)" Exclude="@(Compile)" />
+    </ItemGroup>
+  </Target>
+</Project>

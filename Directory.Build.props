@@ -26,10 +26,10 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <Authors>TacticalGoap Contributors</Authors>
-    <Company>TacticalGoap</Company>
-    <Product>TacticalGoap</Product>
-    <Copyright>Copyright (c) TacticalGoap Contributors</Copyright>
+    <Authors>DynamicPlanningAI Contributors</Authors>
+    <Company>DynamicPlanningAI</Company>
+    <Product>DynamicPlanningAI</Product>
+    <Copyright>Copyright (c) DynamicPlanningAI Contributors</Copyright>
     <RepositoryUrl>https://github.com/Chookees/GOAP_Dynamic_Planning_AI</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
   </PropertyGroup>

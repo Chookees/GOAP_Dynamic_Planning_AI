@@ -1,11 +1,12 @@
 # Architecture
 
-TacticalGoap separates **contracts** from **runtime**, **configuration**, and
-**diagnostics** so hosts can integrate the planner without pulling engine-specific
-code into the core. This document describes layers, lifecycle, tick pipeline,
-and capacity model.
+**DynamicPlanningAI (DP_AI)** — **DP** means **DynamicPlanning** — separates
+**contracts** from **runtime**, **configuration**, and **diagnostics** so hosts
+can integrate the planner without pulling engine-specific code into the core.
+This document describes layers, lifecycle, tick pipeline, and capacity model.
 
-Related: [GOAP_PLANNER.md](GOAP_PLANNER.md), [WORLD_STATE_MODEL.md](WORLD_STATE_MODEL.md),
+Related: [NAMING.md](NAMING.md), [GOAP_PLANNER.md](GOAP_PLANNER.md),
+[WORLD_STATE_MODEL.md](WORLD_STATE_MODEL.md),
 [DETERMINISM.md](DETERMINISM.md), [MEMORY_AND_ALLOCATIONS.md](MEMORY_AND_ALLOCATIONS.md),
 [DESIGN_DECISIONS.md](DESIGN_DECISIONS.md).
 
@@ -13,12 +14,12 @@ Related: [GOAP_PLANNER.md](GOAP_PLANNER.md), [WORLD_STATE_MODEL.md](WORLD_STATE_
 
 | Layer | Assembly | Responsibility |
 |-------|----------|----------------|
-| Contracts | `TacticalGoap.Abstractions` | Identifiers, enums, hard limits, result types, lifecycle states, frozen-path attribute |
-| Runtime | `TacticalGoap.Runtime` | Perception, memory, goals, planner, execution, cover, squad, communication |
-| Configuration | `TacticalGoap.Configuration` | Load, validate, and freeze immutable scenario/agent definitions |
-| Diagnostics | `TacticalGoap.Diagnostics` | Ring-buffer consumers, formatters, contract assertions (depends only on Abstractions) |
-| Sample | `TacticalGoap.Sample` | Console host demonstrating scenarios without a game engine |
-| Audit | `TacticalGoap.Audit` | Offline Roslyn scan for Power-of-Ten / allocation discipline |
+| Contracts | `DynamicPlanningAI.Abstractions` | Identifiers, enums, hard limits, result types, lifecycle states, frozen-path attribute |
+| Runtime | `DynamicPlanningAI.Runtime` | Perception, memory, goals, planner, execution, cover, squad, communication |
+| Configuration | `DynamicPlanningAI.Configuration` | Load, validate, and freeze immutable scenario/agent definitions |
+| Diagnostics | `DynamicPlanningAI.Diagnostics` | Ring-buffer consumers, formatters, contract assertions (depends only on Abstractions) |
+| Sample | `DynamicPlanningAI.Sample` | Console host demonstrating scenarios without a game engine |
+| Audit | `DynamicPlanningAI.Audit` | Offline Roslyn scan for Power-of-Ten / allocation discipline |
 
 ### Dependency rules
 
@@ -119,8 +120,8 @@ failures. See [ENGINE_INTEGRATION_GUIDE.md](ENGINE_INTEGRATION_GUIDE.md).
 
 ## Sample and tools
 
-- `TacticalGoap.Sample` — deterministic console scenarios (`--scenario BasicAttack`).
-- `TacticalGoap.Audit` — offline compliance over the source tree.
+- `DynamicPlanningAI.Sample` — deterministic console scenarios (`--scenario BasicAttack`).
+- `DynamicPlanningAI.Audit` — offline compliance over the source tree.
 
 ## Implementation status
 

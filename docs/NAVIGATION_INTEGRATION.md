@@ -1,6 +1,6 @@
 # Navigation Integration
 
-TacticalGoap does **not** embed a navigation mesh implementation. The runtime
+DynamicPlanningAI does **not** embed a navigation mesh implementation. The runtime
 orchestrates movement actions by calling a **host navigation service** and
 mirroring results into world facts and failure reasons.
 

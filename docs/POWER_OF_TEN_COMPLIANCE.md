@@ -1,6 +1,6 @@
 # Power of Ten Compliance
 
-TacticalGoap adapts NASA / JPL “Power of Ten” rules for safety-critical software
+DynamicPlanningAI adapts NASA / JPL “Power of Ten” rules for safety-critical software
 to a **C# tactical AI runtime**. The goal is predictable control flow, bounded
 resources, and auditable critical paths—not literal embedded C.
 
@@ -99,10 +99,10 @@ allowed when they do not escape or allocate.
 ## Audit tool
 
 ```bash
-dotnet run --project tools/TacticalGoap.Audit --configuration Release -- /path/to/repo
+dotnet run --project tools/DynamicPlanningAI.Audit --configuration Release -- /path/to/repo
 ```
 
-`TacticalGoap.Audit` walks production sources under `src/` with Roslyn (syntax-only)
+`DynamicPlanningAI.Audit` walks production sources under `src/` with Roslyn (syntax-only)
 and reports `File`, `Line`, `RuleId`, `Severity`, `Description`. Exit code is
 non-zero when any **Error** finding is present.
 

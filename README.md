@@ -1,13 +1,24 @@
-# TacticalGoap
+# DynamicPlanningAI (DP_AI)
 
 Engine-agnostic, deterministic Goal-Oriented Action Planning (GOAP) framework for
 tactical AI agents. Written in C# targeting .NET 10, with bounded capacities,
 Power-of-Ten style constraints, and host-facing contracts that do not depend on
 any game engine.
 
+## Naming
+
+| Form | Meaning |
+|------|---------|
+| **DynamicPlanningAI** | Full product / solution / assembly / namespace name |
+| **DP_AI** | Accepted short form of DynamicPlanningAI |
+| **DP** | Always means **DynamicPlanning** (never a standalone product name) |
+
+Task identifiers use the `DP-` prefix (for example `DP-PLN-001`) because **DP**
+means **DynamicPlanning**. See [docs/NAMING.md](docs/NAMING.md).
+
 ## Fidelity disclaimer
 
-TacticalGoap is **inspired by publicly documented F.E.A.R.-era GOAP / tactical AI
+DynamicPlanningAI is **inspired by publicly documented F.E.A.R.-era GOAP / tactical AI
 principles**. It is **original engineering**, not a reverse-engineered or
 proprietary reproduction of any commercial AI codebase. See [NOTICE.md](NOTICE.md)
 and [docs/PUBLIC_SOURCE_FIDELITY.md](docs/PUBLIC_SOURCE_FIDELITY.md).
@@ -32,12 +43,12 @@ and [docs/PUBLIC_SOURCE_FIDELITY.md](docs/PUBLIC_SOURCE_FIDELITY.md).
 
 | Project | Role |
 |---------|------|
-| `TacticalGoap.Abstractions` | Contracts, identifiers, limits, domain enums |
-| `TacticalGoap.Runtime` | Planner, memory, cover, squad, execution |
-| `TacticalGoap.Configuration` | Validated immutable config loading |
-| `TacticalGoap.Diagnostics` | Tracing, formatters, contract helpers |
-| `TacticalGoap.Sample` | Deterministic console simulation |
-| `TacticalGoap.Audit` | Power-of-Ten / allocation-path source audit |
+| `DynamicPlanningAI.Abstractions` | Contracts, identifiers, limits, domain enums |
+| `DynamicPlanningAI.Runtime` | Planner, memory, cover, squad, execution |
+| `DynamicPlanningAI.Configuration` | Validated immutable config loading |
+| `DynamicPlanningAI.Diagnostics` | Tracing, formatters, contract helpers |
+| `DynamicPlanningAI.Sample` | Deterministic console simulation |
+| `DynamicPlanningAI.Audit` | Power-of-Ten / allocation-path source audit |
 | `tests/*` | Unit, integration, simulation, architecture tests |
 
 **Dependency direction:**  
@@ -53,8 +64,8 @@ dotnet restore
 dotnet build --configuration Release
 dotnet test --configuration Release --no-build
 dotnet format --verify-no-changes
-dotnet run --project tools/TacticalGoap.Audit --configuration Release
-dotnet run --project src/TacticalGoap.Sample --configuration Release -- --scenario BasicAttack
+dotnet run --project tools/DynamicPlanningAI.Audit --configuration Release
+dotnet run --project src/DynamicPlanningAI.Sample --configuration Release -- --scenario BasicAttack
 ```
 
 Requires the .NET SDK version pinned in `global.json` (10.0.x).
@@ -64,11 +75,11 @@ Requires the .NET SDK version pinned in `global.json` (10.0.x).
 ```mermaid
 flowchart TB
   Host[Host / Engine Adapter]
-  Sample[TacticalGoap.Sample]
-  Config[TacticalGoap.Configuration]
-  Runtime[TacticalGoap.Runtime]
-  Diag[TacticalGoap.Diagnostics]
-  Abs[TacticalGoap.Abstractions]
+  Sample[DynamicPlanningAI.Sample]
+  Config[DynamicPlanningAI.Configuration]
+  Runtime[DynamicPlanningAI.Runtime]
+  Diag[DynamicPlanningAI.Diagnostics]
+  Abs[DynamicPlanningAI.Abstractions]
 
   Host --> Runtime
   Sample --> Config

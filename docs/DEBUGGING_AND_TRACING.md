@@ -34,7 +34,7 @@ Squad, Communication, Contract.
 
 ## Host dump
 
-`TacticalGoap.Diagnostics` formats ring records **on demand** (allocations
+`DynamicPlanningAI.Diagnostics` formats ring records **on demand** (allocations
 allowed). Never format strings inside `[FrozenRuntimePath]` tick code.
 
 ## Contracts
@@ -45,16 +45,16 @@ configurations; violations map to `OperationStatus.ContractViolation`.
 ## Sample / audit
 
 - Sample scenario logs digest lines for CI golden files.
-- `TacticalGoap.Audit` flags Power-of-Ten issues offline.
+- `DynamicPlanningAI.Audit` flags Power-of-Ten issues offline.
 
 ## Implementation status
 
 Enum catalog: **Implemented**.
 
-Ring buffer: **Implemented** — `TacticalGoap.Diagnostics.DiagnosticRingBuffer`
+Ring buffer: **Implemented** — `DynamicPlanningAI.Diagnostics.DiagnosticRingBuffer`
 (fixed capacity, overwrite-oldest, `Write` / `TryRead` / `Clear`).
 
-On-demand formatters: **Implemented** in `TacticalGoap.Diagnostics.Formatting`:
+On-demand formatters: **Implemented** in `DynamicPlanningAI.Diagnostics.Formatting`:
 
 - `TraceFormatter`
 - `PlannerExplanationFormatter`

@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <IsProductionProject>true</IsProductionProject>
+    <RootNamespace>DynamicPlanningAI.Diagnostics</RootNamespace>
+    <AssemblyName>DynamicPlanningAI.Diagnostics</AssemblyName>
+    <Description>Structured diagnostics formatters and contract helpers for DynamicPlanningAI.</Description>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DynamicPlanningAI.Abstractions\DynamicPlanningAI.Abstractions.csproj" />
+  </ItemGroup>
+</Project>
